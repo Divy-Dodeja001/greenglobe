@@ -1,0 +1,28 @@
+.client-box {
+  border: 1px solid #2e2e2e;
+  background: #f7f7f7;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.client-box img {
+  max-width: 80%;
+  max-height: 40px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.7;
+}
+
+.client-box:hover {
+  border-color: #007bff;
+  background: #fff;
+}
+
+.client-box:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}

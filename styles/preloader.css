@@ -1,0 +1,27 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  background: #ffffff; /* white background */
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preloader-video {
+  width: 240px; /* control icon size */
+  height: 240px;
+  object-fit: contain;
+}
+
+.main-content.loading {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.main-content.loaded {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}

@@ -1,0 +1,281 @@
+.services-showcase-section {
+  background: #efefef;
+}
+
+.service-tabs-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.service-tabs-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.service-tabs-list {
+  display: flex;
+  gap: 28px;
+  min-width: max-content;
+  white-space: nowrap;
+}
+
+.service-tab-btn {
+  border: 0;
+  background: transparent;
+  padding: 0 0 6px;
+  color: #2d2d2d;
+  font-size: 18px;
+  line-height: 1.2;
+  border-bottom: 3px solid transparent;
+  transition: all 0.25s ease;
+}
+
+.service-tab-btn:hover {
+  color: #0b84c9;
+}
+
+.service-tab-btn.active {
+  color: #0b84c9;
+  border-bottom-color: #0b84c9;
+  font-weight: 600;
+}
+
+.service-main-card {
+  position: relative;
+}
+
+.service-hero-media {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-hero-media img {
+  display: block;
+  width: 100%;
+  min-height: 60px;
+  object-fit: cover;
+}
+
+.service-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(9, 124, 186, 0.88) 0%,
+    rgba(9, 124, 186, 0.38) 36%,
+    rgba(9, 124, 186, 0.06) 68%,
+    rgba(9, 124, 186, 0) 100%
+  );
+}
+
+.service-hero-copy {
+  position: absolute;
+  top: 22px;
+  left: 28px;
+  max-width: 500px;
+  color: #fff;
+  z-index: 2;
+}
+
+.servicepage-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.service-hero-copy h3 {
+  margin-bottom: 10px;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.service-hero-copy p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.service-info-card {
+  background: #e8e8e8;
+  max-width: 82%;
+  margin: -49px auto 0;
+  position: relative;
+  z-index: 3;
+  padding: 22px 28px 18px;
+}
+
+.service-info-col {
+  padding: 0 28px;
+}
+
+.service-info-col.with-divider {
+  border-right: 1px solid #ffffff;
+}
+
+.service-info-col h4 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #161616;
+}
+
+.service-info-col ul,
+.service-mobile-block ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.service-info-col li,
+.service-mobile-block li {
+  color: #222;
+  font-size: 18px;
+  line-height: 1.25;
+  margin-bottom: 2px;
+}
+
+.service-quote-btn {
+  background: #48b968;
+  color: #fff;
+  border: 0;
+  border-radius: 0;
+  font-size: 16px;
+  line-height: 1;
+  padding: 11px 22px;
+  transition: all 0.25s ease;
+}
+
+.service-quote-btn:hover {
+  background: #3fa35c;
+  color: #fff;
+}
+
+.service-faq-title {
+  font-size: 28px;
+  font-weight: 500;
+  color: #111;
+}
+
+.service-faq-item {
+  border: 1px solid #dbdbdb;
+  border-radius: 0 !important;
+  margin-bottom: 0;
+  background: #f4f4f4;
+}
+
+.service-faq-item + .service-faq-item {
+  border-top: 0;
+}
+
+.service-faq-button {
+  background: #f4f4f4 !important;
+  box-shadow: none !important;
+  padding: 24px 24px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #1a1a1a !important;
+}
+
+.service-faq-button::after {
+  background-size: 16px;
+}
+
+.faq-question {
+  display: inline-block;
+  padding-right: 18px;
+}
+
+.faq-prefix {
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.service-faq-body {
+  background: #f4f4f4;
+  padding: 0 24px 22px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #5a5a5a;
+}
+
+.service-mobile-copy h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.service-mobile-copy p {
+  font-size: 14px;
+  line-height: 1.45;
+  margin: 0;
+  color: #222;
+}
+
+.service-mobile-card {
+  background: #e8e8e8;
+  padding: 20px;
+}
+
+.service-mobile-image-wrap {
+  margin-bottom: 12px;
+}
+
+.service-mobile-image-wrap img {
+  display: block;
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+}
+
+.service-mobile-block h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #111;
+}
+
+@media (max-width: 767.98px) {
+  .service-tabs-list {
+    gap: 18px;
+  }
+
+  .service-tab-btn {
+    font-size: 15px;
+    padding-bottom: 5px;
+  }
+
+  .service-faq-title {
+    text-align: center;
+    font-size: 22px;
+  }
+
+  .service-faq-button {
+    padding: 14px 14px;
+    font-size: 15px;
+    align-items: flex-start;
+  }
+
+  .service-faq-body {
+    padding: 0 14px 14px;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .service-faq-button::after {
+    margin-top: 2px;
+    background-size: 13px;
+  }
+  .service-info-col li,
+  .service-mobile-block li {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  .services-showcase-section {
+    padding-top: 42px !important;
+    padding-bottom: 56px !important;
+  }
+}

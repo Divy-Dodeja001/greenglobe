@@ -1,0 +1,187 @@
+.request-quote-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 19, 26, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 1040;
+}
+
+.request-quote-modal-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.request-quote-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 1040px;
+  background: #e9e9e9;
+  padding: 42px 48px 36px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.18);
+}
+
+.request-quote-close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  background: transparent;
+  color: #111;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.request-quote-close:hover {
+  transform: scale(1.05);
+  opacity: 0.7;
+}
+
+.request-quote-header {
+  margin-bottom: 20px;
+}
+
+.request-quote-title {
+  margin: 0 0 8px;
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 700;
+  color: #0e0e0e;
+}
+
+.request-quote-subtitle {
+  margin: 0;
+  max-width: 600px;
+  font-size: 16px;
+  line-height: 1.45;
+  color: #2a2a2a;
+}
+
+.request-quote-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 300;
+}
+
+.request-quote-input {
+  border: 1px solid #cfcfcf;
+  border-radius: 0;
+  background: #f7f7f7;
+  font-size: 12px;
+  box-shadow: none !important;
+  padding: 12px 16px;
+}
+
+.request-quote-input::placeholder {
+  color: #8f8f8f;
+}
+
+.request-quote-input:focus {
+  border-color: #1f88c9;
+  background: #fff;
+}
+
+.request-quote-submit-btn {
+  min-height: 46px;
+  border-radius: 0;
+  border: 0;
+  background: #48b968;
+  color: #fff;
+  font-size: 16px;
+  transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+}
+
+.request-quote-submit-btn:hover,
+.request-quote-submit-btn:focus {
+  background: #3eab5c;
+  color: #fff;
+}
+
+.request-quote-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.request-quote-alert {
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.4;
+  border-radius: 0;
+}
+
+.request-quote-alert-success {
+  background: rgba(72, 185, 104, 0.12);
+  color: #24663a;
+  border: 1px solid rgba(72, 185, 104, 0.35);
+}
+
+.request-quote-alert-error {
+  background: rgba(220, 53, 69, 0.1);
+  color: #8b1e29;
+  border: 1px solid rgba(220, 53, 69, 0.25);
+}
+
+@media (max-width: 991.98px) {
+  .request-quote-modal-card {
+    max-width: 760px;
+    padding: 34px 28px 28px;
+  }
+
+  .request-quote-title {
+    font-size: 24px;
+  }
+
+  .request-quote-label {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .request-quote-modal-wrap {
+    padding: 12px;
+    align-items: center;
+  }
+
+  .request-quote-modal-card {
+    padding: 28px 18px 22px;
+  }
+
+  .request-quote-close {
+    top: 12px;
+    right: 12px;
+  }
+
+  .request-quote-title {
+    font-size: 18px;
+    padding-right: 26px;
+  }
+
+  .request-quote-subtitle {
+    font-size: 12px;
+  }
+
+  .request-quote-label {
+    font-size: 12px;
+  }
+
+  .request-quote-input {
+    min-height: 48px;
+    font-size: 12px;
+  }
+
+  .request-quote-submit-btn {
+    font-size: 12px;
+    min-height: 48px;
+  }
+}
