@@ -49,31 +49,31 @@ const services = [
     icon: "sea",
     title: "Sea Freight",
     description: "Cost-effective global shipping for high-volume cargo.",
-    link: "/services?name=sea-freight",
+    link: "/services?name=sea-freight#showcase",
   },
   {
     icon: "air",
     title: "Air Freight",
     description: "Fast, premium delivery for time-critical goods.",
-    link: "/services?name=air-freight",
+    link: "/services?name=air-freight#showcase",
   },
   {
     icon: "truck",
     title: "Inland Transportation",
     description: "Reliable ground logistics from port to door.",
-    link: "/services?name=inland-transportation",
+    link: "/services?name=inland-transportation#showcase",
   },
   {
     icon: "customs",
     title: "Customs Assistance",
     description: "Seamless clearance and expert regulatory compliance.",
-    link: "/services?name=customs-assistance",
+    link: "/services?name=customs-assistance#showcase",
   },
   {
     icon: "package",
     title: "Packaging & Quality Checks",
     description: "Expert protection and inspection for a perfect arrival.",
-    link: "/services?name=packaging-quality-checks",
+    link: "/services?name=packaging-quality-checks#showcase",
   },
 ];
 

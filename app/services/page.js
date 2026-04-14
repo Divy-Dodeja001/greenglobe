@@ -1,8 +1,11 @@
+"use client";
+
 import CTASection from "@/components/CTASection";
 import FloatingHeader from "@/components/FloatingHeader";
 import Footer from "@/components/Footer";
 import HeroFold2 from "@/components/HeroFold2";
 import ServicesShowcase from "@/components/ServicesShowcase";
+import { useSearchParams } from "next/navigation";
 import React from "react";
 
 const page = () => {
@@ -50,19 +53,70 @@ const page = () => {
       buttonHref: "#contact",
       faqs: [
         {
-          question: "How do you handle complex international routes?",
+          question: "What shipping services does Green Globe Logistics offer?",
           answer:
-            "We plan routes based on port efficiency, carrier reliability, transit time, and customs feasibility — not just price. Every shipment is mapped for risk and reliability before execution.",
+            "We specialize in air freight, sea freight, road freight, quality checks, cargo sorting, and packaging. Our end-to-end delivery solutions cater to businesses globally, ensuring timely and efficient service.",
         },
         {
-          question: "How do you handle complex international routes?",
+          question: "How can I choose the right shipping service for my needs?",
           answer:
-            "We plan routes based on port efficiency, carrier reliability, transit time, and customs feasibility — not just price. Every shipment is mapped for risk and reliability before execution.",
+            "Selecting the right service depends on your specific requirements, including speed, destination, and shipment size. Our team provides tailored solutions, so feel free to reach out for personalized advice based on your needs.",
         },
         {
-          question: "How do you handle complex international routes?",
+          question:
+            "Is my payment secure when booking with Green Globe Logistics?",
           answer:
-            "We plan routes based on port efficiency, carrier reliability, transit time, and customs feasibility — not just price. Every shipment is mapped for risk and reliability before execution.",
+            "Yes, we prioritize your security. We use encrypted payment methods to ensure that your financial transactions are safe and protected at all times.",
+        },
+        {
+          question: "What happens to my shipment if I cancel?",
+          answer:
+            "In case of cancellation, the handling and refund process will depend on the timing and status of the shipment. Contact our customer service team for a smooth cancellation procedure and assistance with the next steps.",
+        },
+        {
+          question: "What is remote tracking?",
+          answer:
+            "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast.",
+        },
+        {
+          question: "Do you service my industry?",
+          answer:
+            "Yes, we provide customized logistics solutions for a variety of industries, including retail, manufacturing, and e-commerce. Get in touch with us to learn more about how we can cater to your specific needs.",
+        },
+        {
+          question: "How do I track my shipment?",
+          answer:
+            "You can track your shipment using our online portal, which provides real-time updates on the location and estimated delivery time of your cargo.",
+        },
+        {
+          question: "Can I schedule my shipment delivery?",
+          answer:
+            "Yes, we offer flexible delivery scheduling to ensure your shipment arrives at the most convenient time for you. Speak to our team for more details on available time slots.",
+        },
+        {
+          question: "Do you offer international shipping?",
+          answer:
+            "Yes, Green Globe Logistics operates globally and provides international shipping services to over 20 countries across all continents. Whether you're shipping to Europe, Asia, or beyond, we've got you covered.",
+        },
+        {
+          question: "How do I prepare my shipment for delivery?",
+          answer:
+            "Ensure that your cargo is properly packed according to our guidelines. We also offer packaging services to ensure your items are securely packed for transport.",
+        },
+        {
+          question: "What should I do if my shipment is delayed?",
+          answer:
+            "If your shipment is delayed, our team will immediately investigate and provide you with an updated status. We are committed to ensuring your goods arrive as quickly as possible.",
+        },
+        {
+          question: "How are shipping costs calculated?",
+          answer:
+            "Shipping costs depend on factors such as the size and weight of your shipment, the destination, and the shipping method. Get in touch with our customer service team for a precise quote based on your specific needs.",
+        },
+        {
+          question: "What types of cargo do you transport?",
+          answer:
+            "We handle a wide range of cargo, from small packages to large, bulky items. Whether it's fragile, perishable, or oversized, we provide specialized services to accommodate your needs.",
         },
       ],
     },
@@ -89,19 +143,70 @@ const page = () => {
       buttonHref: "#contact",
       faqs: [
         {
-          question: "How do you handle complex international routes?",
+          question: "What shipping services does Green Globe Logistics offer?",
           answer:
-            "We plan routes based on port efficiency, carrier reliability, transit time, and customs feasibility — not just price. Every shipment is mapped for risk and reliability before execution.",
+            "We specialize in air freight, sea freight, road freight, quality checks, cargo sorting, and packaging. Our end-to-end delivery solutions cater to businesses globally, ensuring timely and efficient service.",
         },
         {
-          question: "How do you handle complex international routes?",
+          question: "How can I choose the right shipping service for my needs?",
           answer:
-            "We plan routes based on port efficiency, carrier reliability, transit time, and customs feasibility — not just price. Every shipment is mapped for risk and reliability before execution.",
+            "Selecting the right service depends on your specific requirements, including speed, destination, and shipment size. Our team provides tailored solutions, so feel free to reach out for personalized advice based on your needs.",
         },
         {
-          question: "How do you handle complex international routes?",
+          question:
+            "Is my payment secure when booking with Green Globe Logistics?",
           answer:
-            "We plan routes based on port efficiency, carrier reliability, transit time, and customs feasibility — not just price. Every shipment is mapped for risk and reliability before execution.",
+            "Yes, we prioritize your security. We use encrypted payment methods to ensure that your financial transactions are safe and protected at all times.",
+        },
+        {
+          question: "What happens to my shipment if I cancel?",
+          answer:
+            "In case of cancellation, the handling and refund process will depend on the timing and status of the shipment. Contact our customer service team for a smooth cancellation procedure and assistance with the next steps.",
+        },
+        {
+          question: "What is remote tracking?",
+          answer:
+            "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast.",
+        },
+        {
+          question: "Do you service my industry?",
+          answer:
+            "Yes, we provide customized logistics solutions for a variety of industries, including retail, manufacturing, and e-commerce. Get in touch with us to learn more about how we can cater to your specific needs.",
+        },
+        {
+          question: "How do I track my shipment?",
+          answer:
+            "You can track your shipment using our online portal, which provides real-time updates on the location and estimated delivery time of your cargo.",
+        },
+        {
+          question: "Can I schedule my shipment delivery?",
+          answer:
+            "Yes, we offer flexible delivery scheduling to ensure your shipment arrives at the most convenient time for you. Speak to our team for more details on available time slots.",
+        },
+        {
+          question: "Do you offer international shipping?",
+          answer:
+            "Yes, Green Globe Logistics operates globally and provides international shipping services to over 20 countries across all continents. Whether you're shipping to Europe, Asia, or beyond, we've got you covered.",
+        },
+        {
+          question: "How do I prepare my shipment for delivery?",
+          answer:
+            "Ensure that your cargo is properly packed according to our guidelines. We also offer packaging services to ensure your items are securely packed for transport.",
+        },
+        {
+          question: "What should I do if my shipment is delayed?",
+          answer:
+            "If your shipment is delayed, our team will immediately investigate and provide you with an updated status. We are committed to ensuring your goods arrive as quickly as possible.",
+        },
+        {
+          question: "How are shipping costs calculated?",
+          answer:
+            "Shipping costs depend on factors such as the size and weight of your shipment, the destination, and the shipping method. Get in touch with our customer service team for a precise quote based on your specific needs.",
+        },
+        {
+          question: "What types of cargo do you transport?",
+          answer:
+            "We handle a wide range of cargo, from small packages to large, bulky items. Whether it's fragile, perishable, or oversized, we provide specialized services to accommodate your needs.",
         },
       ],
     },
@@ -128,19 +233,70 @@ const page = () => {
       buttonHref: "#contact",
       faqs: [
         {
-          question: "How do you handle complex international routes?",
+          question: "What shipping services does Green Globe Logistics offer?",
           answer:
-            "We plan routes based on port efficiency, carrier reliability, transit time, and customs feasibility — not just price. Every shipment is mapped for risk and reliability before execution.",
+            "We specialize in air freight, sea freight, road freight, quality checks, cargo sorting, and packaging. Our end-to-end delivery solutions cater to businesses globally, ensuring timely and efficient service.",
         },
         {
-          question: "How do you handle complex international routes?",
+          question: "How can I choose the right shipping service for my needs?",
           answer:
-            "We plan routes based on port efficiency, carrier reliability, transit time, and customs feasibility — not just price. Every shipment is mapped for risk and reliability before execution.",
+            "Selecting the right service depends on your specific requirements, including speed, destination, and shipment size. Our team provides tailored solutions, so feel free to reach out for personalized advice based on your needs.",
         },
         {
-          question: "How do you handle complex international routes?",
+          question:
+            "Is my payment secure when booking with Green Globe Logistics?",
           answer:
-            "We plan routes based on port efficiency, carrier reliability, transit time, and customs feasibility — not just price. Every shipment is mapped for risk and reliability before execution.",
+            "Yes, we prioritize your security. We use encrypted payment methods to ensure that your financial transactions are safe and protected at all times.",
+        },
+        {
+          question: "What happens to my shipment if I cancel?",
+          answer:
+            "In case of cancellation, the handling and refund process will depend on the timing and status of the shipment. Contact our customer service team for a smooth cancellation procedure and assistance with the next steps.",
+        },
+        {
+          question: "What is remote tracking?",
+          answer:
+            "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast.",
+        },
+        {
+          question: "Do you service my industry?",
+          answer:
+            "Yes, we provide customized logistics solutions for a variety of industries, including retail, manufacturing, and e-commerce. Get in touch with us to learn more about how we can cater to your specific needs.",
+        },
+        {
+          question: "How do I track my shipment?",
+          answer:
+            "You can track your shipment using our online portal, which provides real-time updates on the location and estimated delivery time of your cargo.",
+        },
+        {
+          question: "Can I schedule my shipment delivery?",
+          answer:
+            "Yes, we offer flexible delivery scheduling to ensure your shipment arrives at the most convenient time for you. Speak to our team for more details on available time slots.",
+        },
+        {
+          question: "Do you offer international shipping?",
+          answer:
+            "Yes, Green Globe Logistics operates globally and provides international shipping services to over 20 countries across all continents. Whether you're shipping to Europe, Asia, or beyond, we've got you covered.",
+        },
+        {
+          question: "How do I prepare my shipment for delivery?",
+          answer:
+            "Ensure that your cargo is properly packed according to our guidelines. We also offer packaging services to ensure your items are securely packed for transport.",
+        },
+        {
+          question: "What should I do if my shipment is delayed?",
+          answer:
+            "If your shipment is delayed, our team will immediately investigate and provide you with an updated status. We are committed to ensuring your goods arrive as quickly as possible.",
+        },
+        {
+          question: "How are shipping costs calculated?",
+          answer:
+            "Shipping costs depend on factors such as the size and weight of your shipment, the destination, and the shipping method. Get in touch with our customer service team for a precise quote based on your specific needs.",
+        },
+        {
+          question: "What types of cargo do you transport?",
+          answer:
+            "We handle a wide range of cargo, from small packages to large, bulky items. Whether it's fragile, perishable, or oversized, we provide specialized services to accommodate your needs.",
         },
       ],
     },
@@ -167,19 +323,70 @@ const page = () => {
       buttonHref: "#contact",
       faqs: [
         {
-          question: "How do you handle complex international routes?",
+          question: "What shipping services does Green Globe Logistics offer?",
           answer:
-            "We plan routes based on port efficiency, carrier reliability, transit time, and customs feasibility — not just price. Every shipment is mapped for risk and reliability before execution.",
+            "We specialize in air freight, sea freight, road freight, quality checks, cargo sorting, and packaging. Our end-to-end delivery solutions cater to businesses globally, ensuring timely and efficient service.",
         },
         {
-          question: "How do you handle complex international routes?",
+          question: "How can I choose the right shipping service for my needs?",
           answer:
-            "We plan routes based on port efficiency, carrier reliability, transit time, and customs feasibility — not just price. Every shipment is mapped for risk and reliability before execution.",
+            "Selecting the right service depends on your specific requirements, including speed, destination, and shipment size. Our team provides tailored solutions, so feel free to reach out for personalized advice based on your needs.",
         },
         {
-          question: "How do you handle complex international routes?",
+          question:
+            "Is my payment secure when booking with Green Globe Logistics?",
           answer:
-            "We plan routes based on port efficiency, carrier reliability, transit time, and customs feasibility — not just price. Every shipment is mapped for risk and reliability before execution.",
+            "Yes, we prioritize your security. We use encrypted payment methods to ensure that your financial transactions are safe and protected at all times.",
+        },
+        {
+          question: "What happens to my shipment if I cancel?",
+          answer:
+            "In case of cancellation, the handling and refund process will depend on the timing and status of the shipment. Contact our customer service team for a smooth cancellation procedure and assistance with the next steps.",
+        },
+        {
+          question: "What is remote tracking?",
+          answer:
+            "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast.",
+        },
+        {
+          question: "Do you service my industry?",
+          answer:
+            "Yes, we provide customized logistics solutions for a variety of industries, including retail, manufacturing, and e-commerce. Get in touch with us to learn more about how we can cater to your specific needs.",
+        },
+        {
+          question: "How do I track my shipment?",
+          answer:
+            "You can track your shipment using our online portal, which provides real-time updates on the location and estimated delivery time of your cargo.",
+        },
+        {
+          question: "Can I schedule my shipment delivery?",
+          answer:
+            "Yes, we offer flexible delivery scheduling to ensure your shipment arrives at the most convenient time for you. Speak to our team for more details on available time slots.",
+        },
+        {
+          question: "Do you offer international shipping?",
+          answer:
+            "Yes, Green Globe Logistics operates globally and provides international shipping services to over 20 countries across all continents. Whether you're shipping to Europe, Asia, or beyond, we've got you covered.",
+        },
+        {
+          question: "How do I prepare my shipment for delivery?",
+          answer:
+            "Ensure that your cargo is properly packed according to our guidelines. We also offer packaging services to ensure your items are securely packed for transport.",
+        },
+        {
+          question: "What should I do if my shipment is delayed?",
+          answer:
+            "If your shipment is delayed, our team will immediately investigate and provide you with an updated status. We are committed to ensuring your goods arrive as quickly as possible.",
+        },
+        {
+          question: "How are shipping costs calculated?",
+          answer:
+            "Shipping costs depend on factors such as the size and weight of your shipment, the destination, and the shipping method. Get in touch with our customer service team for a precise quote based on your specific needs.",
+        },
+        {
+          question: "What types of cargo do you transport?",
+          answer:
+            "We handle a wide range of cargo, from small packages to large, bulky items. Whether it's fragile, perishable, or oversized, we provide specialized services to accommodate your needs.",
         },
       ],
     },
@@ -206,28 +413,82 @@ const page = () => {
       buttonHref: "#contact",
       faqs: [
         {
-          question: "How do you handle complex international routes?",
+          question: "What shipping services does Green Globe Logistics offer?",
           answer:
-            "We plan routes based on port efficiency, carrier reliability, transit time, and customs feasibility — not just price. Every shipment is mapped for risk and reliability before execution.",
+            "We specialize in air freight, sea freight, road freight, quality checks, cargo sorting, and packaging. Our end-to-end delivery solutions cater to businesses globally, ensuring timely and efficient service.",
         },
         {
-          question: "How do you handle complex international routes?",
+          question: "How can I choose the right shipping service for my needs?",
           answer:
-            "We plan routes based on port efficiency, carrier reliability, transit time, and customs feasibility — not just price. Every shipment is mapped for risk and reliability before execution.",
+            "Selecting the right service depends on your specific requirements, including speed, destination, and shipment size. Our team provides tailored solutions, so feel free to reach out for personalized advice based on your needs.",
         },
         {
-          question: "How do you handle complex international routes?",
+          question:
+            "Is my payment secure when booking with Green Globe Logistics?",
           answer:
-            "We plan routes based on port efficiency, carrier reliability, transit time, and customs feasibility — not just price. Every shipment is mapped for risk and reliability before execution.",
+            "Yes, we prioritize your security. We use encrypted payment methods to ensure that your financial transactions are safe and protected at all times.",
+        },
+        {
+          question: "What happens to my shipment if I cancel?",
+          answer:
+            "In case of cancellation, the handling and refund process will depend on the timing and status of the shipment. Contact our customer service team for a smooth cancellation procedure and assistance with the next steps.",
+        },
+        {
+          question: "What is remote tracking?",
+          answer:
+            "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast.",
+        },
+        {
+          question: "Do you service my industry?",
+          answer:
+            "Yes, we provide customized logistics solutions for a variety of industries, including retail, manufacturing, and e-commerce. Get in touch with us to learn more about how we can cater to your specific needs.",
+        },
+        {
+          question: "How do I track my shipment?",
+          answer:
+            "You can track your shipment using our online portal, which provides real-time updates on the location and estimated delivery time of your cargo.",
+        },
+        {
+          question: "Can I schedule my shipment delivery?",
+          answer:
+            "Yes, we offer flexible delivery scheduling to ensure your shipment arrives at the most convenient time for you. Speak to our team for more details on available time slots.",
+        },
+        {
+          question: "Do you offer international shipping?",
+          answer:
+            "Yes, Green Globe Logistics operates globally and provides international shipping services to over 20 countries across all continents. Whether you're shipping to Europe, Asia, or beyond, we've got you covered.",
+        },
+        {
+          question: "How do I prepare my shipment for delivery?",
+          answer:
+            "Ensure that your cargo is properly packed according to our guidelines. We also offer packaging services to ensure your items are securely packed for transport.",
+        },
+        {
+          question: "What should I do if my shipment is delayed?",
+          answer:
+            "If your shipment is delayed, our team will immediately investigate and provide you with an updated status. We are committed to ensuring your goods arrive as quickly as possible.",
+        },
+        {
+          question: "How are shipping costs calculated?",
+          answer:
+            "Shipping costs depend on factors such as the size and weight of your shipment, the destination, and the shipping method. Get in touch with our customer service team for a precise quote based on your specific needs.",
+        },
+        {
+          question: "What types of cargo do you transport?",
+          answer:
+            "We handle a wide range of cargo, from small packages to large, bulky items. Whether it's fragile, perishable, or oversized, we provide specialized services to accommodate your needs.",
         },
       ],
     },
   ];
+  const searchParams = useSearchParams();
+
+  const name = searchParams.get("name");
   return (
     <>
       <FloatingHeader logo={heroData.logo} navLinks={heroData.navLinks} />
       <HeroFold2 data={heroData} />
-      <ServicesShowcase services={servicesData} />
+      <ServicesShowcase services={servicesData} active={name} />
       <CTASection
         title="Looking for a reliable logistics partner?"
         subtitle="Let our team guide your next shipment."

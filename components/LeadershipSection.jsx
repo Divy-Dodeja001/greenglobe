@@ -36,14 +36,14 @@ export default function LeadershipSection() {
                     src="/founder.jpg"
                     alt="Founder portrait"
                   />
-                  <div className="leader-badge leader-name-badge shadow-lg">
+                  {/* <div className="leader-badge leader-name-badge shadow-lg">
                     <div className="badge-avatar" />
                     <span>Kanika Arora</span>
                   </div>
                   <div className="leader-badge leader-role-badge shadow-sm">
                     <HiOutlineCheckCircle size={18} />
                     <span>Founder & CEO</span>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </SectionReveal>

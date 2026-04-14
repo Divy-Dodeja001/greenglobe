@@ -9,7 +9,7 @@ const initialForm = {
   company: "",
   email: "",
   phoneNumber: "",
-  cargoType: "Sea Freight",
+  cargoType: "",
   message: "",
 };
 
@@ -17,6 +17,7 @@ export default function RequestQuoteModal({
   isOpen,
   onClose,
   onSubmitForm,
+  cargo,
   title = "Let’s plan your next shipment.",
   subtitle = "Share your requirements and our team will connect with you to discuss the most suitable logistics solution.",
 }) {
@@ -38,6 +39,14 @@ export default function RequestQuoteModal({
     ],
     [],
   );
+
+  useEffect(() => {
+    console.log(cargo)
+    setFormData((prev) => ({
+      ...prev,
+      cargoType: cargo ? cargo : "Sea Freight",
+    }));
+  }, [cargo]);
 
   useEffect(() => {
     if (isOpen) {
@@ -208,7 +217,6 @@ export default function RequestQuoteModal({
                       type="text"
                       name="name"
                       className={`form-control request-quote-input ${errors.name ? "is-invalid" : ""}`}
-                      placeholder="Rachel Joe"
                       value={formData.name}
                       onChange={handleChange}
                     />
@@ -224,7 +232,6 @@ export default function RequestQuoteModal({
                       type="text"
                       name="phoneNumber"
                       className={`form-control request-quote-input ${errors.phoneNumber ? "is-invalid" : ""}`}
-                      placeholder="0123456789"
                       value={formData.phoneNumber}
                       onChange={handleChange}
                     />
@@ -260,7 +267,6 @@ export default function RequestQuoteModal({
                       type="text"
                       name="company"
                       className={`form-control request-quote-input ${errors.company ? "is-invalid" : ""}`}
-                      placeholder="Lamazon"
                       value={formData.company}
                       onChange={handleChange}
                     />
@@ -276,7 +282,6 @@ export default function RequestQuoteModal({
                       type="email"
                       name="email"
                       className={`form-control request-quote-input ${errors.email ? "is-invalid" : ""}`}
-                      placeholder="Rachel@123mail.com"
                       value={formData.email}
                       onChange={handleChange}
                     />
@@ -291,7 +296,6 @@ export default function RequestQuoteModal({
                     <textarea
                       name="message"
                       className={`form-control request-quote-input request-quote-textarea ${errors.message ? "is-invalid" : ""}`}
-                      placeholder="Lorem Ipsum Dolor Sit"
                       value={formData.message}
                       onChange={handleChange}
                     />

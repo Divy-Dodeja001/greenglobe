@@ -90,17 +90,22 @@ main {
   margin-left: -10px;
 }
 
-.brand-logo img, video {
+.brand-logo img,
+video {
   width: 88px;
   height: 88px;
   object-fit: cover;
   background: #fff;
-  padding: 8px;
+}
+
+.logo-header {
+  left: 26%;
+  z-index: 3;
 }
 
 .nav-link-custom {
   color: rgba(255, 255, 255, 0.82);
-  font-size: 14px;
+  font-size: 18px;
   transition:
     color 0.25s ease,
     transform 0.25s ease;
@@ -119,14 +124,14 @@ main {
 
 .mobile-menu-card {
   background: rgba(11, 134, 200, 0.98);
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
 }
 
 .mobile-link {
   color: #fff;
   padding: 14px 18px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .hero-section {
@@ -171,7 +176,7 @@ main {
   line-height: 1.08;
   font-weight: 600;
   margin-bottom: 18px;
-    max-width: 500px;
+  max-width: 500px;
 }
 
 .hero-copy p {
@@ -393,7 +398,7 @@ main {
   padding-bottom: 24px;
 }
 
-.leader-image-card::after {
+/* .leader-image-card::after {
   content: "";
   position: absolute;
   left: 0px;
@@ -405,7 +410,7 @@ main {
     rgba(24, 184, 255, 0) 0%,
     rgba(11, 134, 200, 0.95) 100%
   );
-}
+} */
 
 .leader-image-card img {
   width: 100%;
@@ -505,6 +510,13 @@ main {
   color: #475467;
 }
 
+@media (max-width: 1600px) {
+  .logo-header {
+    left: 12%;
+  }
+}
+
+
 @media (max-width: 1199.98px) {
   .service-card h3 {
     min-height: auto;
@@ -577,7 +589,7 @@ main {
 
 @media (max-width: 767.98px) {
   .floating-header {
-    top: 14px;
+    top: 20px;
   }
 
   .cta-strip-btn {
@@ -589,10 +601,9 @@ main {
     min-height: 45px;
   }
 
-  .brand-logo img {
+  .brand-logo video {
     width: 62px;
     height: 62px;
-    padding: 5px;
   }
 
   .hero-copy h1 {
@@ -760,7 +771,7 @@ main {
 }
 
 .hero-section-2 {
-  height: 95vh;
+  height: 80vh;
 }
 
 .hero-bg {
@@ -800,7 +811,7 @@ main {
 @media (max-width: 767.98px) {
   .hero-copy-2 {
     position: absolute;
-    padding-top: 100px;
+    padding-top: 20px;
   }
 }
 

@@ -23,8 +23,8 @@ export default function FloatingHeader({ logo, navLinks = [] }) {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="container px-4 px-md-0">
-        <div className="header-shell d-flex align-items-center justify-content-end">
-          <div className="position-absolute" style={{ left: "12%", zIndex: 3 }}>
+        <div className="header-shell d-flex align-items-center justify-content-end px-md-5">
+          <div className="position-absolute logo-header">
             <a
               href="/"
               className="brand-logo d-flex align-items-center text-decoration-none"
@@ -42,7 +42,7 @@ export default function FloatingHeader({ logo, navLinks = [] }) {
             </a>
           </div>
 
-          <nav className="d-none d-lg-flex align-items-center gap-4">
+          <nav className="d-none d-lg-flex align-items-center gap-5 px-md-5">
             {navLinks.map((link) => (
               <a key={link.label} href={link.href} className="nav-link-custom">
                 {link.label}
