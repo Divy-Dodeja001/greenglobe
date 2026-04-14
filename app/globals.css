@@ -516,7 +516,6 @@ video {
   }
 }
 
-
 @media (max-width: 1199.98px) {
   .service-card h3 {
     min-height: auto;
@@ -811,7 +810,11 @@ video {
 @media (max-width: 767.98px) {
   .hero-copy-2 {
     position: absolute;
-    padding-top: 20px;
+    padding-top: 140px;
+    padding-bottom: 0!important;
+  }
+  .hero-section-2 {
+    height: 100vh;
   }
 }
 

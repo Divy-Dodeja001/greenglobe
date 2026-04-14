@@ -42,7 +42,7 @@ export default function HeroFold2({ data }) {
               className="hero-bg-image"
             />
           </picture>
-          {data.showTextonDesktop && <div className="hero-overlay" />}
+          {<div className="hero-overlay" />}
         </motion.div>
 
         <div
