@@ -29,8 +29,8 @@ export default function FloatingHeader({ logo, navLinks = [] }) {
               href="/"
               className="brand-logo d-flex align-items-center text-decoration-none"
             >
-              <video
-                className=""
+              <motion.video
+                layoutId="site-logo" // 🔥 SAME ID
                 autoPlay
                 muted
                 loop
@@ -38,7 +38,7 @@ export default function FloatingHeader({ logo, navLinks = [] }) {
                 preload="auto"
               >
                 <source src="/preloader.mp4" type="video/mp4" />
-              </video>
+              </motion.video>
             </a>
           </div>
 

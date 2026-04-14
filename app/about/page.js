@@ -5,14 +5,30 @@ import FloatingHeader from "@/components/FloatingHeader";
 import Footer from "@/components/Footer";
 import HeroFold2 from "@/components/HeroFold2";
 import SectionReveal from "@/components/SectionReveal";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { motion } from "framer-motion";
+import "swiper/css";
+import "swiper/css/pagination";
 
 import "swiper/css";
 import { Icon } from "@iconify/react";
+import CountUp from "react-countup";
 
 const page = () => {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const checkScreen = () => {
+      setIsDesktop(window.innerWidth >= 992); // lg breakpoint
+    };
+
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
   const heroData = {
     logo: {
       src: "https://placehold.co/120x120/png?text=GG",
@@ -36,7 +52,7 @@ const page = () => {
     {
       heading: "Reliability",
       text: "Delivering consistent outcomes across every shipment.",
-      image:"icon-park-outline:protect"
+      image: "icon-park-outline:protect",
     },
     {
       heading: "Precision",
@@ -46,14 +62,16 @@ const page = () => {
     {
       heading: "Transparency",
       text: "Clear communication and honest operations.",
-      image:"basil:hotspot-outline"
+      image: "basil:hotspot-outline",
     },
     {
       heading: "Long-term partnerships",
       text: "Building relationships that grow with our clients.",
-      image:"ph:handshake-light"
+      image: "ph:handshake-light",
     },
   ];
+
+  const [done, setDone] = useState(false);
 
   return (
     <>
@@ -113,6 +131,9 @@ const page = () => {
             slidesPerView={1.2}
             spaceBetween={16}
             speed={1200}
+            pagination={{
+              clickable: true,
+            }}
             autoplay={{
               delay: 2500,
               disableOnInteraction: false,
@@ -133,29 +154,101 @@ const page = () => {
               },
             }}
           >
-            {brandPointers.map((pointer, index) => (
-              <SwiperSlide key={index}>
-                <div
-                  className="pointer-card p-4 bg-white border"
-                  style={{ height: "230px" }}
-                >
-                  <div className="mb-2">
-                    <Icon
-                      icon={pointer.image}
-                      width="52"
-                      height="52"
-                      style={{ color: "#027EB9" }}
-                    />
+            {brandPointers.map((pointer, index) =>
+              isDesktop ? (
+                <SwiperSlide key={index}>
+                  <motion.div
+                    className="pointer-card p-4 bg-white border"
+                    style={{
+                      height: "230px",
+                      position: "relative",
+                      overflow: "hidden",
+                      cursor: "pointer",
+                    }}
+                    initial="rest"
+                    whileHover="hover"
+                    animate="rest"
+                  >
+                    <motion.div
+                      className="pointer-main"
+                      variants={{
+                        rest: {
+                          top: "50%",
+                          left: "50%",
+                          x: "-50%",
+                          y: "-50%",
+                        },
+                        hover: {
+                          top: "35%",
+                          left: "50%",
+                          x: "-50%",
+                          y: "-50%",
+                        },
+                      }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                      style={{
+                        position: "absolute",
+                        textAlign: "center",
+                      }}
+                    >
+                      <Icon
+                        icon={pointer.image}
+                        width="52"
+                        height="52"
+                        style={{ color: "#027EB9" }}
+                      />
+                      <p className="inter-bold mt-2">{pointer.heading}</p>
+                    </motion.div>
+
+                    <motion.p
+                      className="pointer-desc text-center"
+                      variants={{
+                        rest: {
+                          opacity: 0,
+                          y: 10,
+                        },
+                        hover: {
+                          opacity: 1,
+                          y: 0,
+                        },
+                      }}
+                      transition={{ duration: 0.4, delay: 0.15 }}
+                      style={{
+                        position: "absolute",
+                        top: "135px",
+                        left: "20px",
+                        right: "20px",
+                        fontSize: "16px",
+                      }}
+                    >
+                      {pointer.text}
+                    </motion.p>
+                  </motion.div>
+                </SwiperSlide>
+              ) : (
+                <SwiperSlide className="pb-5" key={index}>
+                  <div
+                    className="pointer-card p-4 bg-white border"
+                    style={{ height: "230px" }}
+                  >
+                    <div className="mb-2">
+                      <Icon
+                        icon={pointer.image}
+                        width="52"
+                        height="52"
+                        style={{ color: "#027EB9" }}
+                      />
+                    </div>
+                    <p style={{ fontSize: "18px" }} className="inter-bold mb-2">
+                      {pointer.heading}
+                    </p>
+                    <p style={{ fontSize: "16px" }} className="mb-0">
+                      {pointer.text}
+                    </p>
                   </div>
-                  <p style={{ fontSize: "18px" }} className="inter-bold mb-2">
-                    {pointer.heading}
-                  </p>
-                  <p style={{ fontSize: "16px" }} className="mb-0">
-                    {pointer.text}
-                  </p>
-                </div>
-              </SwiperSlide>
-            ))}
+                </SwiperSlide>
+              ),
+            )}
           </Swiper>
         </div>
       </div>
@@ -167,7 +260,15 @@ const page = () => {
               <SectionReveal>
                 <div className="leadership-copy pe-lg-4 mx-auto d-none d-md-block">
                   <h2 className="section-title text-start mb-4 w-75">
-                    Operating across 20+ countries
+                    Operating across{" "}
+                    <CountUp
+                      end={20}
+                      duration={2.4}
+                      enableScrollSpy
+                      scrollSpyOnce
+                      onEnd={() => setDone(true)}
+                    />
+                    {done && "+"} countries
                   </h2>
                   <p>
                     Supporting international trade through a trusted network of
@@ -181,7 +282,14 @@ const page = () => {
               <SectionReveal delay={0.15}>
                 <div className="leadership-visual mx-auto d-md-none">
                   <h2 className="section-title text-start mb-3">
-                    Operating across 20+ countries
+                    Operating across{" "}
+                    <CountUp
+                      end={20}
+                      duration={2.4}
+                      enableScrollSpy
+                      scrollSpyOnce
+                    />
+                    + countries
                   </h2>
                   <p className="pb-4">
                     Supporting international trade through a trusted network of

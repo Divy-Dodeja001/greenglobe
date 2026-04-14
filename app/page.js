@@ -97,7 +97,7 @@ const partners = [
 
 export default function HomePage() {
   return (
-    <main>
+    <main className="position-relative">
       <FloatingHeader logo={heroData.logo} navLinks={heroData.navLinks} />
       <HeroFold data={heroData} />
       <ServicesSection services={services} />
@@ -110,6 +110,18 @@ export default function HomePage() {
         buttonLabel="Request a Quote"
       />
       <Footer />
+      <div
+        className="position-absolute d-md-block d-none"
+        style={{ top: "60%", right: "0%" }}
+      >
+        <img src="/blue.png" className="img-fluid"></img>
+      </div>
+      <div
+        className="position-absolute d-md-block d-none"
+        style={{ top: "50%", left: "0%" }}
+      >
+        <img src="/green.png" className="img-fluid"></img>
+      </div>
     </main>
   );
 }

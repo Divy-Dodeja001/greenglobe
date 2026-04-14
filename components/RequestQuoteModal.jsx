@@ -41,7 +41,6 @@ export default function RequestQuoteModal({
   );
 
   useEffect(() => {
-    console.log(cargo)
     setFormData((prev) => ({
       ...prev,
       cargoType: cargo ? cargo : "Sea Freight",

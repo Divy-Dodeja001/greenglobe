@@ -95,28 +95,33 @@ export default function HeroFold({ data }) {
               <SectionReveal yOffset={30}>
                 <div className="stats-card">
                   <div className="row g-0">
-                    {data.stats.map((item, index) => (
-                      <div className="col-4" key={item.label}>
-                        <div
-                          className={`stat-item ${
-                            index !== data.stats.length - 1
-                              ? "with-divider"
-                              : ""
-                          }`}
-                        >
-                          <div className="stat-number">
-                            <CountUp
-                              end={item.value}
-                              duration={2.4}
-                              enableScrollSpy
-                              scrollSpyOnce
-                            />
-                            {item.suffix || ""}
+                    {data.stats.map((item, index) => {
+                      const [done, setDone] = useState(false); // ✅ per item
+
+                      return (
+                        <div className="col-4" key={item.label}>
+                          <div
+                            className={`stat-item ${
+                              index !== data.stats.length - 1
+                                ? "with-divider"
+                                : ""
+                            }`}
+                          >
+                            <div className="stat-number">
+                              <CountUp
+                                end={item.value}
+                                duration={2.4}
+                                enableScrollSpy
+                                scrollSpyOnce
+                                onEnd={() => setDone(true)}
+                              />
+                              {done && item.suffix ? item.suffix : ""}
+                            </div>
+                            <div className="stat-label">{item.label}</div>
                           </div>
-                          <div className="stat-label">{item.label}</div>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               </SectionReveal>
