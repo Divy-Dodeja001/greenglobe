@@ -1,10 +1,9 @@
-
 import CTASection from "@/components/CTASection";
 import FloatingHeader from "@/components/FloatingHeader";
 import Footer from "@/components/Footer";
 import HeroFold2 from "@/components/HeroFold2";
 import ServicesWrapper from "@/components/ServicesWrapper";
-import React from "react";
+import React, { Suspense } from "react";
 
 const page = () => {
   const heroData = {
@@ -483,7 +482,9 @@ const page = () => {
     <>
       <FloatingHeader logo={heroData.logo} navLinks={heroData.navLinks} />
       <HeroFold2 data={heroData} />
-      <ServicesWrapper services={servicesData}/>
+      <Suspense fallback={null}>
+        <ServicesWrapper services={servicesData} />
+      </Suspense>
       <CTASection
         title="Looking for a reliable logistics partner?"
         subtitle="Let our team guide your next shipment."
