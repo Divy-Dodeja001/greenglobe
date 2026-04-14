@@ -1,11 +1,9 @@
-"use client";
 
 import CTASection from "@/components/CTASection";
 import FloatingHeader from "@/components/FloatingHeader";
 import Footer from "@/components/Footer";
 import HeroFold2 from "@/components/HeroFold2";
-import ServicesShowcase from "@/components/ServicesShowcase";
-import { useSearchParams } from "next/navigation";
+import ServicesWrapper from "@/components/ServicesWrapper";
 import React from "react";
 
 const page = () => {
@@ -481,14 +479,11 @@ const page = () => {
       ],
     },
   ];
-  const searchParams = useSearchParams();
-
-  const name = searchParams.get("name");
   return (
     <>
       <FloatingHeader logo={heroData.logo} navLinks={heroData.navLinks} />
       <HeroFold2 data={heroData} />
-      <ServicesShowcase services={servicesData} active={name} />
+      <ServicesWrapper services={servicesData}/>
       <CTASection
         title="Looking for a reliable logistics partner?"
         subtitle="Let our team guide your next shipment."
