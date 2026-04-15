@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import "../styles/servicesShowcase.css";
 import { Icon } from "@iconify/react";
 import RequestQuoteModal from "./RequestQuoteModal";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function ServicesShowcase({
   services = [],
@@ -67,22 +68,75 @@ export default function ServicesShowcase({
                     alt={activeService.title}
                     className="img-fluid w-100"
                   />
-                  <div className="service-hero-overlay" />
 
-                  <div className="service-hero-copy">
-                    {activeService.icon && (
-                      <Icon
-                        icon={activeService.icon}
-                        className="servicepage-icon"
-                        style={{ color: "white" }}
-                      />
-                    )}
-                    <h3>{activeService.title}</h3>
-                    <p>{activeService.description}</p>
-                  </div>
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={`overlay-${activeService.title}`}
+                      className="service-hero-overlay"
+                      initial={{ scaleX: 0, transformOrigin: "left center" }}
+                      animate={{ scaleX: 1, transformOrigin: "left center" }}
+                      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                    />
+                  </AnimatePresence>
+
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={`copy-${activeService.title}`}
+                      className="service-hero-copy"
+                      initial={{ opacity: 0, x: 40 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: 20 }}
+                      transition={{
+                        duration: 0.55,
+                        delay: 0.3,
+                        ease: [0.22, 1, 0.36, 1],
+                      }}
+                    >
+                      {activeService.icon && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 12 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.4, delay: 0.45 }}
+                        >
+                          <Icon
+                            icon={activeService.icon}
+                            className="servicepage-icon"
+                            style={{ color: "white" }}
+                          />
+                        </motion.div>
+                      )}
+
+                      <motion.h3
+                        initial={{ opacity: 0, y: 18 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.45, delay: 0.5 }}
+                      >
+                        {activeService.title}
+                      </motion.h3>
+
+                      <motion.p
+                        initial={{ opacity: 0, y: 18 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.45, delay: 0.6 }}
+                      >
+                        {activeService.description}
+                      </motion.p>
+                    </motion.div>
+                  </AnimatePresence>
                 </div>
 
-                <div className="service-info-card">
+                <motion.div
+                  key={`info-${activeService.title}`}
+                  className="service-info-card"
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.9, // 👈 AFTER copy animation
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                >
+                  {" "}
                   <div className="row g-0">
                     <div className="col-md-6">
                       <div className="service-info-col with-divider">
@@ -106,7 +160,6 @@ export default function ServicesShowcase({
                       </div>
                     </div>
                   </div>
-
                   {activeService.buttonLabel && (
                     <div className="text-center mt-3">
                       <button
@@ -117,54 +170,126 @@ export default function ServicesShowcase({
                       </button>
                     </div>
                   )}
-                </div>
+                </motion.div>
               </div>
 
               <div className="d-block d-md-none">
-                <div className="service-mobile-copy mb-4">
+                <motion.div
+                  key={`mobile-copy-${activeService.title}`}
+                  className="service-mobile-copy mb-4"
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.45,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                >
                   <h3>{activeService.title}</h3>
                   <p>{activeService.description}</p>
-                </div>
+                </motion.div>
 
                 <div className="service-mobile-card">
-                  <div className="service-mobile-image-wrap">
+                  <motion.div
+                    key={`mobile-image-${activeService.title}`}
+                    className="service-mobile-image-wrap"
+                    initial={{ opacity: 0, y: 28, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{
+                      duration: 0.55,
+                      delay: 0.18,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                  >
                     <img
                       src={activeService.imageMobile || activeService.image}
                       alt={activeService.title}
                       className="img-fluid w-100"
                     />
-                  </div>
+                  </motion.div>
 
-                  <div className="service-mobile-content">
-                    <div className="service-mobile-block mb-4">
+                  <motion.div
+                    key={`mobile-content-${activeService.title}`}
+                    className="service-mobile-content"
+                    initial="hidden"
+                    animate="show"
+                    variants={{
+                      hidden: {},
+                      show: {
+                        transition: {
+                          staggerChildren: 0.14,
+                          delayChildren: 0.38,
+                        },
+                      },
+                    }}
+                  >
+                    <motion.div
+                      className="service-mobile-block mb-4"
+                      variants={{
+                        hidden: { opacity: 0, y: 24 },
+                        show: {
+                          opacity: 1,
+                          y: 0,
+                          transition: {
+                            duration: 0.45,
+                            ease: [0.22, 1, 0.36, 1],
+                          },
+                        },
+                      }}
+                    >
                       <h4>What we handle</h4>
                       <ul>
                         {activeService.whatWeHandle?.map((item, index) => (
                           <li key={index}>{item}</li>
                         ))}
                       </ul>
-                    </div>
+                    </motion.div>
 
-                    <div className="service-mobile-block">
+                    <motion.div
+                      className="service-mobile-block"
+                      variants={{
+                        hidden: { opacity: 0, y: 24 },
+                        show: {
+                          opacity: 1,
+                          y: 0,
+                          transition: {
+                            duration: 0.45,
+                            ease: [0.22, 1, 0.36, 1],
+                          },
+                        },
+                      }}
+                    >
                       <h4>Who this is ideal for</h4>
                       <ul>
                         {activeService.idealFor?.map((item, index) => (
                           <li key={index}>{item}</li>
                         ))}
                       </ul>
-                    </div>
+                    </motion.div>
 
                     {activeService.buttonLabel && (
-                      <div className="mt-3">
+                      <motion.div
+                        className="mt-3"
+                        variants={{
+                          hidden: { opacity: 0, y: 20 },
+                          show: {
+                            opacity: 1,
+                            y: 0,
+                            transition: {
+                              duration: 0.45,
+                              ease: [0.22, 1, 0.36, 1],
+                            },
+                          },
+                        }}
+                      >
                         <button
                           onClick={handleButtonClick}
                           className="btn service-quote-btn w-100"
                         >
                           {activeService.buttonLabel}
                         </button>
-                      </div>
+                      </motion.div>
                     )}
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>

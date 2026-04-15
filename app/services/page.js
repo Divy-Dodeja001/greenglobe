@@ -31,8 +31,8 @@ const page = () => {
       title: "Sea Freight",
       description:
         "Sea freight is GreenGlobe’s flagship service. We manage ocean freight movements across major international routes with a focus on planning, coordination, and reliable execution. This is not transactional shipping. It is route intelligence backed by experience.",
-      imageDesktop: "/sea-freight.jpg",
-      imageMobile: "/sea-freight.jpg",
+      imageDesktop: "/sea-freight.png",
+      imageMobile: "/sea-freight.png",
       icon: "ri:ship-fill",
       whatWeHandle: [
         "Full Container Load and Less than Container Load shipments",
@@ -123,8 +123,8 @@ const page = () => {
       title: "Air Freight",
       description:
         "Air freight services designed for time critical cargo requiring speed, security, and precision. Used selectively. Executed professionally.",
-      imageDesktop: "/sea-freight.jpg",
-      imageMobile: "/sea-freight.jpg",
+      imageDesktop: "/air-freight.png",
+      imageMobile: "/air-freight.png",
       icon: "mdi:flight",
       whatWeHandle: [
         "Time sensitive international shipments",
@@ -213,8 +213,8 @@ const page = () => {
       title: "Inland Transportation",
       description:
         "Inland transportation solutions supporting seamless movement between ports, warehouses, and final destinations. Built to connect the supply chain without breaks.",
-      imageDesktop: "/sea-freight.jpg",
-      imageMobile: "/sea-freight.jpg",
+      imageDesktop: "/inland.png",
+      imageMobile: "/inland.png",
       icon: "boxicons:truck-filled",
       whatWeHandle: [
         "Port to warehouse movements",
@@ -303,8 +303,8 @@ const page = () => {
       title: "Customs Assistance",
       description:
         "Expert handling of documentation, compliance, and customs coordination to ensure smooth clearance across borders. This is risk management, not paperwork.",
-      imageDesktop: "/sea-freight.jpg",
-      imageMobile: "/sea-freight.jpg",
+      imageDesktop: "/customs.png",
+      imageMobile: "/customs.png",
       icon: "healthicons:officer",
       whatWeHandle: [
         "Export and import documentation",
@@ -393,8 +393,8 @@ const page = () => {
       title: "Packaging & Quality Checks",
       description:
         "Professional packaging and quality verification to ensure cargo safety and regulatory compliance before movement. Problems solved before they travel.",
-      imageDesktop: "/sea-freight.jpg",
-      imageMobile: "/sea-freight.jpg",
+      imageDesktop: "/quality-checks.png",
+      imageMobile: "/quality-checks.png",
       icon: "fluent:box-20-filled",
       whatWeHandle: [
         "Export compliant packaging",
