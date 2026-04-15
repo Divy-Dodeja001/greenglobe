@@ -43,7 +43,7 @@ export default function ServicesShowcase({
       <section className="services-showcase-section py-5 my-4" id="showcase">
         {activeService && (
           <div className="container px-3 px-md-0">
-            <div className="service-tabs-scroll mb-4 mb-md-4">
+            <div className="service-tabs-scroll mb-5">
               <div className="service-tabs-list">
                 {services.map((service, index) => (
                   <button
